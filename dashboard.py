@@ -65,3 +65,12 @@ st.line_chart(table.set_index('week'))
 st.write("### Student Count Distribution Across Learning Modalities")
 fig_hist = px.histogram(df, x="student_count", color="learning_modality", nbins=5, title="Distribution of Student Counts")
 st.plotly_chart(fig_hist)
+
+# Additional interactive filters
+st.write("### Filter by District")
+districts = df['district_name'].unique()
+selected_district = st.selectbox("Select District", districts)
+filtered_data = df[df['district_name'] == selected_district]
+
+st.write(f"Data for District: {selected_district}")
+st.write(filtered_data[['week', 'learning_modality', 'student_count']])
