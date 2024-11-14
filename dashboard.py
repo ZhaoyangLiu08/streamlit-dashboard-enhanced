@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
-st.header("2024 AHI 507 Streamlit Example")
+
+st.header("2024 AHI 507 Streamlit by Zhaoyang")
 st.subheader("We are going to go through a couple different examples of loading and visualization information into this dashboard")
 
 st.text("""In this streamlit dashboard, we are going to focus on some recently released school learning modalities data from the NCES, for the years of 2021.""")
@@ -50,3 +52,14 @@ st.bar_chart(
     x="week",
     y="Remote",
 )
+
+
+# Line chart for weekly learning modality trends
+st.write("### Weekly Learning Modality Trends")
+st.line_chart(table.set_index('week'))
+
+
+# Add histogram to show distribution of student counts
+st.write("### Student Count Distribution Across Learning Modalities")
+fig_hist = px.histogram(df, x="student_count", color="learning_modality", nbins=30, title="Distribution of Student Counts")
+st.plotly_chart(fig_hist)
