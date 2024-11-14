@@ -63,5 +63,5 @@ st.line_chart(table.set_index('week'))
 
 # Add histogram to show distribution of student counts
 st.write("### Student Count Distribution Across Learning Modalities")
-fig_hist = px.histogram(df, x="student_count", color="learning_modality", nbins=100, title="Distribution of Student Counts")
+fig_hist = px.histogram(df, x="student_count", color="learning_modality", nbins=5, title="Distribution of Student Counts")
 st.plotly_chart(fig_hist)
