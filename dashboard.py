@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 
 st.header("2024 AHI 507 Streamlit by Zhaoyang")
@@ -26,6 +27,7 @@ col3.metric("Number of unique districts/schools:", df['district_name'].nunique()
 ## exposing first 1k of NCES 20-21 data
 st.dataframe(df)
 
+st.write(df.columns)
 
 
 table = pd.pivot_table(df, values='student_count', index=['week'],
